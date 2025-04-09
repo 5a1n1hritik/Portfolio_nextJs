@@ -1,0 +1,39 @@
+.blob-modern {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle at 30% 30%, #38bdf8, #6366f1);
+    border-radius: 50%;
+    opacity: 0.25;
+    mix-blend-mode: lighten;
+    animation: blobMove 18s ease-in-out infinite alternate;
+    will-change: transform;
+    transition: transform 0.3s ease-in-out;
+    filter: blur(2px);
+  }
+  
+  .blob-1 { top: 5%; left: 10%; animation-delay: 0s; }
+  .blob-2 { top: 25%; left: 70%; animation-delay: 2s; }
+  .blob-3 { top: 50%; left: 40%; animation-delay: 4s; }
+  .blob-4 { top: 70%; left: 20%; animation-delay: 6s; }
+  .blob-5 { top: 85%; left: 60%; animation-delay: 8s; }
+  .blob-6 { top: 35%; left: 85%; animation-delay: 10s; }
+  
+  @keyframes blobMove {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    25% {
+      transform: translate(30px, -20px) scale(1.05) rotate(5deg);
+    }
+    50% {
+      transform: translate(-20px, 30px) scale(0.95) rotate(-5deg);
+    }
+    75% {
+      transform: translate(15px, -15px) scale(1.02) rotate(2deg);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+  
