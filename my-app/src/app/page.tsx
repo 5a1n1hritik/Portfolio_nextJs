@@ -9,6 +9,8 @@ import { HeroParallax } from "@/components/ui/hero-parallax";
 import profile from "@/components/data/images/profile.jpeg";
 import AboutSection from "@/components/AboutSection";
 import BlobBackground from "@/components/BlobBackground";
+import Products from "@/components/Products";
+import ExperienceEducation from "@/components/Experience-&-Education";
 
 export default function Home() {
   const scrollToContact = () => {
@@ -162,8 +164,10 @@ export default function Home() {
           </div>
         </section>
       </HeroParallax>
-
+      
       <AboutSection />
+      <Products />
+      <ExperienceEducation />
     </main>
   );
 }

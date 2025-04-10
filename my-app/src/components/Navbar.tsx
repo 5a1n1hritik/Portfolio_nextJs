@@ -18,7 +18,7 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  const [activeSection, setActiveSection] = useState("/");
+  const [activeSection, setActiveSection] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useMobile();
   const pathname = usePathname();
@@ -81,9 +81,14 @@ const Navbar = () => {
                           href={link.href}
                           className={cn(
                             "text-muted-foreground hover:text-foreground transition-colors",
-                            pathname === link.href &&
+                            activeSection === link.href.substring(1) &&
                               "text-primary font-semibold"
                           )}
+                          // className={cn(
+                          //   "text-muted-foreground hover:text-foreground transition-colors",
+                          //   pathname === link.href &&
+                          //     "text-primary font-semibold"
+                          // )}
                           onClick={closeMenu}
                         >
                           {link.name}
@@ -105,9 +110,14 @@ const Navbar = () => {
                       href={link.href}
                       className={cn(
                         "relative inline-block text-muted-foreground hover:text-foreground transition-colors duration-300",
-                        pathname === link.href &&
+                        activeSection === link.href.substring(1) &&
                           "text-foreground font-semibold after:absolute after:left-0 after:bottom-[-2px] after:h-[2px] after:w-full after:bg-primary after:transition-all after:duration-300"
                       )}
+                      // className={cn(
+                      //   "relative inline-block text-muted-foreground hover:text-foreground transition-colors duration-300",
+                      //   pathname === link.href &&
+                      //     "text-foreground font-semibold after:absolute after:left-0 after:bottom-[-2px] after:h-[2px] after:w-full after:bg-primary after:transition-all after:duration-300"
+                      // )}
                     >
                       {link.name}
                     </Link>
