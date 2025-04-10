@@ -2,26 +2,24 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useMobile } from "@/hooks/use-mobile";
 import { Button } from "./ui/button";
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Projects", href: "/projects" },
-  { name: "Experience", href: "/experience" },
-  { name: "Skills", href: "/skills" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Projects", href: "#projects" },
+  { name: "Experience", href: "#experience" },
+  { name: "Skills", href: "#skills" },
+  { name: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useMobile();
-  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,7 +50,7 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
         <Link
-          href="/"
+          href="#home"
           className="text-xl font-bold bg-gradient-to-b from-blue-100 to-black bg-clip-text text-transparent"
         >
           HSaini
@@ -84,11 +82,6 @@ const Navbar = () => {
                             activeSection === link.href.substring(1) &&
                               "text-primary font-semibold"
                           )}
-                          // className={cn(
-                          //   "text-muted-foreground hover:text-foreground transition-colors",
-                          //   pathname === link.href &&
-                          //     "text-primary font-semibold"
-                          // )}
                           onClick={closeMenu}
                         >
                           {link.name}
@@ -113,11 +106,6 @@ const Navbar = () => {
                         activeSection === link.href.substring(1) &&
                           "text-foreground font-semibold after:absolute after:left-0 after:bottom-[-2px] after:h-[2px] after:w-full after:bg-primary after:transition-all after:duration-300"
                       )}
-                      // className={cn(
-                      //   "relative inline-block text-muted-foreground hover:text-foreground transition-colors duration-300",
-                      //   pathname === link.href &&
-                      //     "text-foreground font-semibold after:absolute after:left-0 after:bottom-[-2px] after:h-[2px] after:w-full after:bg-primary after:transition-all after:duration-300"
-                      // )}
                     >
                       {link.name}
                     </Link>
